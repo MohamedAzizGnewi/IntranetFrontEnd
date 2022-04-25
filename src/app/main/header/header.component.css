@@ -1,12 +1,13 @@
 
-nav {
-    background-color: black;
-    text-align: center;
-}
+
 nav>ul>li>span {
-    color: white;
+    color: black;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 18px;
    
    
+}
+.title {
+    font-weight: 700;
+    font-size: 40px;
 }

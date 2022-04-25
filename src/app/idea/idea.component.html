@@ -1,0 +1,60 @@
+<body>
+    <kendo-listview
+    *ngIf="show"
+    height="900"
+    [data]="view"
+    style="background-color:#e9ecef    ;"
+    containerClass="k-d-flex k-flex-col k-flex-nowrap"
+    (scrollBottom)="loadMore()"
+    >
+    <ng-template kendoListViewHeaderTemplate  style="background-color:white;">
+        <div class="header" style="background-color:white;">
+          <div class="title">Inventory</div>
+          <button type="button" class="btn btn-primary btn-lg" (click)="addIdea()">Add Idea</button>
+        </div>
+    </ng-template>
+    <ng-template
+     
+        kendoListViewItemTemplate
+        let-dataItem="dataItem"
+        let-isLast="isLast"
+        let-index="index"
+      
+    >
+    <kendo-card orientation="horizontal" class="article" width="auto" [class.border-bottom]="!isLast">
+        <div  class="number-div" >
+          <p class="num">{{ dataItem.vote }}</p> 
+          <p class="num">vote</p>
+        </div>
+      <div class="k-vbox">
+      
+        <kendo-card-body>
+          <div class="text-content">
+              <div kendoCardTitle class="title">
+                  {{ dataItem.content }}
+              </div>
+              <div kendoCardSubtitle class="subtitle">
+                {{ index }}
+              </div>
+              <div kendoCardSubtitle class="date">
+                 ssss
+              </div>
+          </div>
+        </kendo-card-body>
+     
+        <kendo-card-actions class="action">
+          <button class="k-button k-flat" (click)="save4(index,dataItem.id)">
+            <span [ngClass]="heartIcon2(index)"></span>
+            Like
+          </button>
+        </kendo-card-actions>
+      </div>
+    </kendo-card>
+      
+    </ng-template>
+    </kendo-listview>
+    
+</body>
+
+
+  

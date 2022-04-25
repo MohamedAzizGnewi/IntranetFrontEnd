@@ -1,0 +1,50 @@
+<div class="container1">
+    <kendo-card  class=" grid__item" width="500px" >
+        <kendo-card-header >
+      
+           
+        </kendo-card-header>
+        <img [src]="'data:image/gif;base64,'+event.image" kendoCardMedia alt="cover_img" />
+        <kendo-card-body  >
+          <div class="title-event" >
+            <span class="title-text">{{event.name}}</span>
+          </div>
+          
+          <p class="text-muted">
+            <img
+              class="icon-meeting mr-1"
+              src="https://img.icons8.com/ios/344/banknotes.png"
+            />{{ event.price }}
+          </p>
+
+          <p class="text-muted">
+            Quantity
+            <input type="number" #box
+            (keyup)="getValue(box.value)"
+            id="item" 
+            name="item"
+            min="1" >
+          </p>
+          <p>{{Quantity}}</p>
+
+          <hr kendoCardSeparator />
+         
+            <p >
+              {{event.description}}
+            </p>
+         
+          
+        </kendo-card-body>
+        
+        <kendo-card-actions orientation="horizontal"  layout="stretched">
+          <button class="k-button k-flat" (click)="save4(event.id,event.name,Quantity)"  >
+            <span  [ngClass]="heartIcon2()" aria-hidden="true"></span>
+            Buy
+          </button>
+         
+        
+        </kendo-card-actions>
+      
+      </kendo-card>
+    
+</div>

@@ -1,0 +1,82 @@
+<mat-dialog-content>
+  <div class="form">
+    
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Group</th>
+            <th scope="col">Permission</th>
+        
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Marketing</td>
+            <td>
+              <mat-radio-group aria-label="Select an option">
+              <mat-radio-button value="1">Visible</mat-radio-button>
+              <mat-radio-button value="2">READ</mat-radio-button>
+              <mat-radio-button value="3">Download</mat-radio-button>
+            </mat-radio-group>
+          </td>
+           
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Sales</td>
+            <td>
+              <mat-radio-group aria-label="Select an option">
+                <mat-radio-button value="1">Visible</mat-radio-button>
+                <mat-radio-button value="2">READ</mat-radio-button>
+                <mat-radio-button value="3">Download</mat-radio-button>
+              </mat-radio-group>
+            </td>
+           
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>EQZ</td>
+            <td>
+              <mat-radio-group aria-label="Select an option">
+                <mat-radio-button value="1">Visible</mat-radio-button>
+                <mat-radio-button value="2">READ</mat-radio-button>
+                <mat-radio-button value="3">Download</mat-radio-button>
+              </mat-radio-group>
+            </td>
+          
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>RH</td>
+            <td>
+              <mat-radio-group aria-label="Select an option">
+                <mat-radio-button value="1">Visible</mat-radio-button>
+                <mat-radio-button value="2">READ</mat-radio-button>
+                <mat-radio-button value="3">Download</mat-radio-button>
+              </mat-radio-group>
+            </td>
+          
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Business intelligence</td>
+            <td>
+              <mat-radio-group aria-label="Select an option">
+                <mat-radio-button value="1">Visible</mat-radio-button>
+                <mat-radio-button value="2">READ</mat-radio-button>
+                <mat-radio-button value="3">Download</mat-radio-button>
+              </mat-radio-group>
+            </td>
+          
+          </tr>
+        </tbody>
+      </table>
+      </div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Close</button>
+    <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+  </mat-dialog-actions>
+  

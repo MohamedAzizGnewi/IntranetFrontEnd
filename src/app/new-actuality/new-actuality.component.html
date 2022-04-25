@@ -1,0 +1,81 @@
+  
+<h1 mat-dialog-title >New Tool</h1>
+<div mat-dialog-content>
+    <div class="form">  
+        <mat-radio-group aria-label="Select an option" [(ngModel)]="form"   class="example-radio-group" >
+            <mat-radio-button  class="example-radio-button" *ngFor = "let item of items" [value] = "item.val">      {{item.name}}  </mat-radio-button>
+          </mat-radio-group>
+    
+           
+            <div *ngIf="form===1" >
+              <mat-form-field appearance="fill" >
+                <mat-label>Visibility</mat-label>
+                <select matNativeControl [(ngModel)]="pays" name="solution">
+                  <option *ngFor="let pay of visibility" [value]="pay">
+                    {{pay}}
+                  </option>
+                </select>
+              </mat-form-field>
+           
+              <mat-form-field>
+                <mat-label>Content</mat-label>
+                <textarea matInput  cdkTextareaAutosize
+                #autosize="cdkTextareaAutosize"
+                cdkAutosizeMinRows="1"
+                cdkAutosizeMaxRows="5" [(ngModel)]="content" ></textarea>
+              </mat-form-field>
+              <kendo-upload [saveUrl]="uploadSaveUrl" [removeUrl]="uploadRemoveUrl"  [(ngModel)]="images" name="logo">
+            </kendo-upload>
+          </div>
+          
+          <div *ngIf="form===3"  >
+            <mat-form-field appearance="fill" >
+              <mat-label>Visibility</mat-label>
+              <select matNativeControl  [(ngModel)]="flash.pays" >
+                <option *ngFor="let pay of visibility" [value]="pay">
+                  {{pay}}
+                </option>
+              </select>
+            </mat-form-field>
+            <div class="example-wrapper mb-2">
+              <p>end date and time:</p>
+              <kendo-datetimepicker  [(value)]="flash.date">
+              </kendo-datetimepicker>
+           
+            </div>
+            <mat-form-field appearance="fill">
+              <mat-label>Title</mat-label>
+              <input matInput #last [(ngModel)]="flash.title">
+              
+            </mat-form-field>
+           
+        
+            <mat-form-field>
+              <mat-label>Content</mat-label>
+              <textarea matInput  cdkTextareaAutosize
+              #autosize="cdkTextareaAutosize"
+              cdkAutosizeMinRows="1"
+              cdkAutosizeMaxRows="5" [(ngModel)]="flash.description" ></textarea>
+            </mat-form-field>
+            <kendo-upload
+            [saveUrl]="uploadSaveUrl"
+            [removeUrl]="uploadRemoveUrl"
+            [multiple]="false"
+            [(ngModel)]="images"
+          >
+          </kendo-upload>
+         
+          
+    
+          </div>
+         
+    </div>
+   
+   
+      
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button  (click)="close()">Close</button>
+    <button mat-button (click)="save()" cdkFocusInitial>Ok</button>
+  </div>
+

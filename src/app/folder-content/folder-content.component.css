@@ -1,0 +1,16 @@
+table{
+    width: 100%;
+   }
+.mat-row:hover {
+    background-color:#EEEEEE;;
+  }
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+.input-filter {
+  padding-top: 1%;
+}
+.icon {
+  width: 20px;
+  height: 20px;
+}

@@ -1,0 +1,59 @@
+<ngb-carousel *ngIf="show" style="margin-bottom: 3%;">
+    <ng-template ngbSlide *ngFor="let flash of flashs">
+        <kendo-card width="100%" height="300px"  orientation="horizontal" >
+                   
+            <img
+             
+             class="col-5 k-card-image"
+              
+              kendoCardMedia
+              [src]="'data:image/png;base64,'+flash.image"
+             
+           
+            />
+        
+          <div class="k-vbox col-7">
+            <kendo-card-header>
+        
+              
+              <h6 kendoCardSubtitle>Flash-Info {{flash.date_created}}</h6>
+              <h1 kendoCardTitle>{{ flash.tilte }}</h1>
+             
+            </kendo-card-header>
+            <kendo-card-body >
+         
+             <p class="max-lines">{{ flash.description }}</p>
+          
+             
+                
+                 
+            
+            
+            
+            </kendo-card-body>
+            <kendo-card-actions>
+              <button class="k-button k-primary k-flat">View More</button>
+            </kendo-card-actions>
+          </div>
+        </kendo-card>
+    </ng-template>
+  </ngb-carousel>
+  <div *ngIf="!show" class="container-fluid test2">
+    <div class="h-100 row align-items-center justify-content-center t1">
+      <div  class="row k-loading-panel">
+        <div class="k-loading-panel-mask"></div>
+        <div class="k-loading-panel-wrapper">
+          <kendo-loader
+            type="infinite-spinner"
+            themeColor="primary"
+            size="small"
+          >
+          </kendo-loader>
+          <div class="k-loading-panel-text">Loading...</div>
+        </div>
+      </div>
+      </div>
+      </div>
+        
+
+    

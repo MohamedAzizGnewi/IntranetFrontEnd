@@ -1,0 +1,373 @@
+
+<div class="row justify-content-center mb-3">
+
+
+  
+  <kendo-listview
+
+  [kendoListViewBinding]="data3"
+  [pageable]="pagerSettings"
+  [pageSize]="pageSize"  
+  [containerClass]="'listview-content'"
+  [itemStyle]="{
+    display: 'inline-flex'
+  }"  
+  >   
+  <ng-template kendoListViewHeaderTemplate>
+    <h3 class="header-title">  Tools </h3>
+  </ng-template>
+  <ng-template
+      kendoListViewItemTemplate
+      let-dataItem="dataItem"
+      let-isLast="isLast"
+  >
+  <div class="card1">
+  
+    <input type="checkbox" id="{{dataItem.id}}" class="more">
+  
+    <div class="content " >
+  
+      <div class="front ">
+    
+          <div class="inner row ">
+            <div class="ml-auto" > 
+              <button *ngIf="isadmin" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item 
+                (click)="openDialogeditTool(dataItem.id)">
+                  <mat-icon>
+                   
+                      drive_file_rename_outline
+                  </mat-icon>
+                  <span>Edit Link</span>
+                </button>
+         
+                <button mat-menu-item>
+                  <mat-icon>
+                    delete
+                  </mat-icon>
+                  <span>Delete</span>
+                </button>
+              </mat-menu>
+            </div>
+            
+  
+            <div class=" row justify-content-center align-items-center"  > 
+  
+             
+  
+              
+  
+                <div class="row justify-content-center col-12">
+  
+                  <button class="btn link-button" >
+  
+                    <img [src]="'data:image/png;base64,'+dataItem.logo" class="img-button" />
+                  </button>
+  
+                </div>
+  
+                <div class="row justify-content-center col-12 mt-3 mb-2">
+  
+                  <h2 class="">{{dataItem.name}}</h2>
+  
+                </div>
+  
+              
+  
+             
+  
+              <div class="row justify-content-around col-12">
+                
+                <label attr.for="{{dataItem.id}}" class=" button" aria-hidden="true">
+  
+                  Details
+  
+              </label>
+  
+                <label  class=" button" aria-hidden="true"  (click)="openNewPage(dataItem.link)">
+  
+                  Consult
+  
+               </label>
+  
+            
+  
+                
+  
+              </div>
+  
+                
+  
+                
+  
+               
+  
+                
+  
+             
+  
+  
+  
+            
+  
+             
+  
+            </div>
+  
+              
+  
+         
+  
+          </div>
+  
+      </div>
+  
+      <div class="back">
+  
+          <div class="inner container">
+  
+             
+  
+              <div class="description row ">
+  
+                  <h1 class="descrption-text">
+                 
+                    {{dataItem. description}}
+                     </h1>
+  
+  
+              
+  
+              </div>
+  
+              <div class="row mt-4">
+  
+                <label attr.for="{{dataItem.id}}" class="button return" aria-hidden="true">
+  
+                  <i class="fas fa-arrow-left"></i>
+  
+              </label>
+  
+              </div>
+  
+             
+  
+          </div>
+  
+      </div>
+  
+  </div>
+  
+  </div>
+    
+  </ng-template>
+  <ng-template kendoListViewFooterTemplate>
+    
+  </ng-template>
+  </kendo-listview>
+
+
+</div>
+ 
+
+
+  <div *ngIf="selection.selected.length==0" class="row  action-bar border2" style="background-color: white;">
+
+    <button *ngIf="isadmin" mat-button class="button-folder" (click)="openDialogNewFolder()">
+      <mat-icon>
+        
+            folder
+         
+      </mat-icon>
+      <span>New Folder</span>  
+    </button>  
+  
+    <button *ngIf="isadmin" mat-button class="button-folder ml-2" (click)="openDialogUpload()">
+      <mat-icon>
+       
+            upload_file
+       
+        
+      </mat-icon>
+      <span>Upload</span>
+    </button>
+    <button *ngIf="isadmin" mat-button class="button-folder ml-2" [matMenuTriggerFor]="menu" (click)="edit()">
+      <mat-icon>
+       
+          edit
+      
+      </mat-icon>
+      <span>Edit</span>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Rename</button>
+      <button mat-menu-item>Edit permissions</button>
+    </mat-menu>
+     
+  
+         
+  
+  </div>
+  <div *ngIf="selection.selected.length!==0" class="row  action-bar border2" style="background-color: white;">
+      
+     
+     
+  
+      <button  *ngIf="isadmin" type="button" class="btn btn-default   button-folder ml-2"  (click)="delete()">
+  
+        <i class="far fa-trash-alt"></i> Delete
+  
+      </button>
+     
+        <button  type="button" class="btn btn-default   button-folder ml-2" (click)="downloadFile()" >
+  
+          <i class="fas fa-download"></i> Download
+    
+        </button>
+   
+    
+    
+       
+    
+      
+     
+  
+      
+  
+  </div>
+  <div class="row tab ">
+     <div class="col-3 folder border1" style="background-color: white;" >
+       
+        <kendo-treeview
+        *ngIf="!isadmin"
+      [nodes]="data"
+      textField="name"
+      kendoTreeViewExpandable
+      kendoTreeViewSelectable
+      kendoTreeViewHierarchyBinding
+      childrenField="directoryss"
+      (selectionChange)="handleSelection($event)"
+    >
+
+        <ng-template kendoTreeViewNodeTemplate let-dataItem>
+            <span [ngClass]="iconClass(dataItem)"></span>
+            {{dataItem.name}}
+        </ng-template>
+
+    </kendo-treeview>
+    <kendo-treeview
+    *ngIf="isadmin"
+    [nodes]="data"
+    textField="name"
+    kendoTreeViewExpandable
+    kendoTreeViewSelectable
+    kendoTreeViewHierarchyBinding
+    childrenField="directorys"
+    (selectionChange)="handleSelection($event)"
+  >
+
+      <ng-template kendoTreeViewNodeTemplate let-dataItem>
+          <span [ngClass]="iconClass(dataItem)"></span>
+          {{dataItem.name}}
+      </ng-template>
+
+  </kendo-treeview>
+    </div>
+  
+ 
+     <div  class="col-9 folder border3" style="background-color: white;" >
+      <div *ngIf="wait" class="child k-loading-panel">
+        <div class="k-loading-panel-mask"></div>
+        <div class="k-loading-panel-wrapper">
+          <kendo-loader
+            type="infinite-spinner"
+            themeColor="primary"
+            size="large"
+          >
+          </kendo-loader>
+          <div class="k-loading-panel-text">Loading...</div>
+        </div>
+      </div>
+   
+           <div *ngIf="!wait" >
+        <mat-form-field class="input-filter">
+          <mat-label>Filter</mat-label>
+          <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+        </mat-form-field>
+        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z0">
+      
+  
+            
+          <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef>
+              <div class="row align-items-center">
+              <mat-checkbox (change)="$event ? masterToggle() : null"
+                            class="mt-2" 
+                            [checked]="selection.hasValue() && isAllSelected()"
+                            [indeterminate]="selection.hasValue() && !isAllSelected()"
+                            [aria-label]="checkboxLabel()">
+              </mat-checkbox>
+              </div>
+            </th>
+            <td mat-cell *matCellDef="let row">
+              <div class="row align-items-center">
+                <mat-checkbox 
+               
+                class="mt-2" 
+                (click)="$event.stopPropagation() "
+                (change)="$event ? selection.toggle(row) : null"
+                [checked]="selection.isSelected(row)"
+                [aria-label]="checkboxLabel(row)">
+  </mat-checkbox>
+              </div>
+              
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <td mat-cell *matCellDef="let element"> <img [src]="element.logo"  class="icon"></td>
+          </ng-container>
+            
+        
+          
+          <ng-container matColumnDef="symbole">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <td mat-cell *matCellDef="let element"> <img [src]="element.symbole" class="icon"></td>
+          </ng-container>
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+          <ng-container matColumnDef="type">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
+            <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+          </ng-container>
+         
+          <ng-container matColumnDef="modified">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Modified </th>
+            <td mat-cell *matCellDef="let element"> {{element.lastUpdate}} </td>
+          </ng-container>
+          <ng-container matColumnDef="size">
+            <th mat-header-cell *matHeaderCellDef> Size </th>
+            <td mat-cell *matCellDef="let element"> {{element.size}} </td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+              (click)="selection.toggle(row)" (mouseover)="handleMouseOver(row)" (mouseleave)="handleMouseLeave(row)" (dblclick)="doubleClick(row)" >
+          </tr>
+      
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10,15]" showFirstLastButtons></mat-paginator>
+      </div>
+     
+    
+     
+    </div>
+  </div>
+
+

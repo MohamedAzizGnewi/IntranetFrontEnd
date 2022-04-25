@@ -1,0 +1,75 @@
+<h1 mat-dialog-title >New Event</h1>
+<div mat-dialog-content>
+    <div class="form"  >
+       
+          
+                  <mat-form-field>
+                    <mat-label>Name</mat-label>
+                    <input matInput [(ngModel)]="name" >
+                   
+                  </mat-form-field>
+                  <kendo-upload style="width: 100%;margin-bottom: 1%;"  [saveUrl]="uploadSaveUrl" [removeUrl]="uploadRemoveUrl" [(ngModel)]="image" >
+                </kendo-upload>
+                  <mat-checkbox class="example-margin" [(ngModel)]="checked">This is an online event</mat-checkbox>
+                  <mat-form-field *ngIf="checked">
+                    <mat-label>Invite Link</mat-label>
+                    <input matInput [(ngModel)]="link">
+                   
+                  </mat-form-field>
+                  <mat-form-field *ngIf="!checked">
+                    <mat-label>Address</mat-label>
+                    <input matInput [(ngModel)]="address">
+                   
+                  </mat-form-field>
+                  <mat-form-field *ngIf="!checked">
+                    <mat-label>Venue</mat-label>
+                    <input matInput [(ngModel)]="venue" >
+                   
+                  </mat-form-field>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Type</mat-label>
+                    <select matNativeControl [(ngModel)]="type" name="solution">
+                      <option *ngFor="let type of types" [value]="type.name">
+                        {{type.name}}
+                      </option>
+                    </select>
+                  </mat-form-field>
+                  <mat-form-field>
+                    <mat-label>Description</mat-label>
+                   
+                    <textarea matInput [(ngModel)]="description"></textarea>
+                  </mat-form-field>
+                  <div class="flex-container2">
+                    <div class="flex-container">
+                        <div>
+                          <label class="label" for="exampleInputPassword1">Start Date</label>
+                          <input type="date" class="form-control"  id="exampleInputPassword1"  [(ngModel)]="start_date">
+                        </div>
+                       
+                        <div>
+                          <label class="label" for="exampleInputPassword1">Start Time</label>
+                          <input type="time" class="form-control"  id="exampleInputPassword1" [(ngModel)]="start_time">
+                        </div>
+                    </div>
+                    <div class="flex-container" style="margin-left: 2%;">
+                      <div>
+                          <label class="label" for="exampleInputPassword1">End Date</label>
+                          <input type="date" class="form-control"  id="exampleInputPassword1" [(ngModel)]="end_date" >
+                        </div>
+                      <div >
+                        <label class="label" for="exampleInputPassword1">End Time</label>
+                        <input type="time" class="form-control"  id="exampleInputPassword1"   [(ngModel)]="end_time" >
+                      </div>
+                      
+                     </div>
+                  </div>
+               
+                   
+   
+      
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button  (click)="close()">Close</button>
+    <button mat-button (click)="save()" cdkFocusInitial>Ok</button>
+  </div>
+  

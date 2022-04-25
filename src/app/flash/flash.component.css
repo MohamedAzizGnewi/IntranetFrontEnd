@@ -1,0 +1,21 @@
+
+  @import "../../styles.css";
+  @import "~@angular/cdk/overlay-prebuilt.css";
+  .k-card-image {
+    width: 100%;
+    height: 300px;
+  }
+  .max-lines {
+    overflow: hidden;
+    overflow-wrap: break-word;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    -webkit-box-orient: vertical;
+    }
+  .k-vbox,.k-card-image {
+    padding: 0%;
+  
+  }
+
+  

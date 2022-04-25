@@ -1,0 +1,88 @@
+<div *ngIf="show">
+  <h1 mat-dialog-title >New User</h1>
+<div mat-dialog-content>
+    <div class="form">  
+    
+       
+           
+        <mat-form-field  appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="email">
+          </mat-form-field>
+          <mat-form-field  appearance="fill">
+          <mat-label>FirstName</mat-label>
+            <input matInput [(ngModel)]="firstname">
+          </mat-form-field>
+          <mat-form-field  appearance="fill">
+          <mat-label>LastName</mat-label>
+          <input matInput [(ngModel)]="lastname">
+        </mat-form-field>
+        <mat-form-field  appearance="fill">
+          <mat-label>Job</mat-label> 
+          <input matInput [(ngModel)]="poste">
+        </mat-form-field>
+        <div class="example-wrapper mb-2">
+          <p>end date and time</p>
+          <kendo-datepicker  [(value)]="join_date">
+          </kendo-datepicker>
+       
+        </div>
+        <mat-form-field appearance="fill" >
+          <mat-label>Role</mat-label>
+          <select matNativeControl [(ngModel)]="selectedRole" name="solution">
+            <option *ngFor="let role of roles" >
+              {{role}}
+            </option>
+          </select>
+       </mat-form-field>
+         <mat-form-field appearance="fill" >
+                <mat-label>Pays</mat-label>
+                
+                <select matNativeControl [(ngModel)]="selectedPays" name="pays">
+                  <option *ngFor="let pay of pays" >
+                    {{pay}}
+                  </option>
+                </select>
+          </mat-form-field>
+          <mat-form-field appearance="fill" >
+                <mat-label>Departement</mat-label>
+                <select matNativeControl [(ngModel)]="selectedDepartement" name="departement">
+                  <option *ngFor="let departement of departements" >
+                    {{departement.name}}
+                  </option>
+                </select>
+              </mat-form-field>
+      
+           
+          </div>
+     
+         
+    </div>
+   
+   
+      
+ 
+  <div mat-dialog-actions>
+    <button mat-button  (click)="close()">Close</button>
+    <button mat-button (click)="save()" cdkFocusInitial>Ok</button>
+  </div>
+</div>
+
+   
+
+  <div *ngIf="!show" class="container-fluid test2">
+    <div class="h-100 row align-items-center justify-content-center t1">
+      <div  class="row k-loading-panel">
+        <div class="k-loading-panel-mask"></div>
+        <div class="k-loading-panel-wrapper">
+          <kendo-loader
+            type="infinite-spinner"
+            themeColor="primary"
+            size="large"
+          >
+          </kendo-loader>
+          <div class="k-loading-panel-text">Loading...</div>
+        </div>
+      </div>
+      </div>
+      </div>

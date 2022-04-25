@@ -1,0 +1,59 @@
+@import "../../styles.css";
+@import "~@angular/cdk/overlay-prebuilt.css";
+.card {
+    padding: 20px 24px;
+    min-height: 181px;
+    border-width: 0;
+    border-radius: 0;
+    flex: 1;
+   
+}
+.card.border-bottom {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+.card .text-content {
+    padding: 0 8px;
+    margin-right: 3rem;
+    flex-grow: 1;
+}
+.card .text-content .title {
+    font-size: 18px;
+    font-weight: bold;
+}
+.card .text-content .subtitle {
+    font-size: 14px;
+    margin-top: 0;
+}
+.card .text-content .date {
+    font-size: 12px;
+}
+.card .actions {
+    padding: 0;
+}
+.card .k-card-media {
+    max-width: unset;
+}
+.k-icon.k-i-heart {
+    color: #ff6358;
+  }
+  .k-button {
+    width: 20%;
+  }
+  .k-card {
+    height: 200px;
+    margin-bottom: 20px;
+  }
+  .number-div {
+  background-color: #ff6358;
+    display: flex;
+    flex-direction: column;
+  justify-content: center;
+  align-items: center;
+    width: 200px;
+    height: 200px
+  }
+  .num {
+      color:white;
+      font-size: 30px;
+      font-weight: 800;
+  } 

@@ -1,0 +1,44 @@
+
+<div *ngIf="!show" class="container-fluid test2">
+    <div class="h-100 row align-items-center justify-content-center t1">
+      <div  class="row k-loading-panel">
+        <div class="k-loading-panel-mask"></div>
+        <div class="k-loading-panel-wrapper">
+          <kendo-loader
+            type="infinite-spinner"
+            themeColor="primary"
+            size="large"
+          >
+          </kendo-loader>
+          <div class="k-loading-panel-text">Loading...</div>
+        </div>
+      </div>
+      </div>
+      </div>
+  <div  *ngIf="show" class="container-fluid c1" >
+      <div  class="shadow  row action2  align-items-center " *ngIf="isadmin">
+        <button type="button" class="btn btn-primary btn-lg mr-4" (click)="openDialognewTool()">Add Tool</button>
+     
+     </div>  
+
+    
+    
+    
+     
+    
+    
+    
+       
+    
+         
+            <app-sales-detail   [change]="change"></app-sales-detail>
+       
+    
+       
+    
+            
+    
+      
+    </div>
+    
+  

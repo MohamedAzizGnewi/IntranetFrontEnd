@@ -1,0 +1,71 @@
+<div class="left_box card">
+    <div class="card-header ui-sortable-handle" style="cursor: move">
+      <h3 class="card-title">
+        <i class="fas fa-briefcase mr-1"></i>
+
+        New Recruitments
+      </h3>
+
+      <div class="card-tools">
+        <button
+          type="button"
+          class="btn btn-tool"
+          data-card-widget="collapse"
+        >
+          <i class="fas fa-minus"></i>
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-tool"
+          data-card-widget="remove"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+
+   
+    <div class="card-body">
+      <div class="div-recrt">
+        <kendo-scrollview
+          [data]="recruits"
+          [width]="width"
+          [height]="height"
+          [arrows]="true"
+        >
+          <ng-template let-item="item">
+            <section id="speakers">
+              <div class="speaker" data-aos="fade-up" data-aos-delay="100">
+                <img
+                  src="data:image/png;base64,{{item.image}}"
+                  class="img-fluid"
+                />
+                
+                <div class="details">
+                  <h3>
+                    <a href="speaker-details.html">{{ item.firstName }} {{ item.lastName }}</a>
+                  </h3>
+                  <p class="poste-text">{{ item.poste }}</p>
+                  <div class="social">
+                    <button class="social-icon btn" (click)="open(item.facebookUrl)">
+                      <i class="fas fa-user-alt"></i>
+                    </button>
+                    <button class="social-icon btn">
+                      <i class="fab fa-linkedin"></i>
+                    </button>
+                    <button class="social-icon btn">
+                      <i class="fas fa-envelope"></i>
+                    </button>
+                  </div>
+                </div>
+                
+              </div>
+            </section>
+          </ng-template>
+        </kendo-scrollview>
+      </div>
+    </div>
+
+  
+  </div>

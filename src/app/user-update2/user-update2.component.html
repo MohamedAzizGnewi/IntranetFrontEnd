@@ -1,0 +1,61 @@
+<div *ngIf="show">
+  <h1 mat-dialog-title >New User</h1>
+  <div mat-dialog-content>
+      <div class="form">  
+      
+         
+             
+          <mat-form-field  appearance="fill">
+              <mat-label>phone number</mat-label>
+              <input matInput [(ngModel)]="phone">
+            </mat-form-field>
+       
+           <!--
+             <div class="example-wrapper mb-2 mt-2">
+              <p>photo :</p>
+              <kendo-upload [saveUrl]="uploadSaveUrl" [removeUrl]="uploadRemoveUrl"  [(ngModel)]="image" name="logo">
+              </kendo-upload>
+           
+            </div>
+           --> 
+          <div class="example-wrapper mb-2 mt-2">
+            <p>birthday :</p>
+            <kendo-datepicker  [(value)]="birthday">
+            </kendo-datepicker>
+         
+          </div>
+      
+        
+             
+            </div>
+       
+           
+      </div>
+     
+     
+        
+   
+    <div mat-dialog-actions>
+      <button mat-button  (click)="close()">Close</button>
+      <button mat-button (click)="save()" cdkFocusInitial>Ok</button>
+    </div>
+</div>
+
+
+  
+    <div *ngIf="!show" class="container-fluid test2">
+      <div class="h-100 row align-items-center justify-content-center t1">
+        <div  class="row k-loading-panel">
+          <div class="k-loading-panel-mask"></div>
+          <div class="k-loading-panel-wrapper">
+            <kendo-loader
+              type="infinite-spinner"
+              themeColor="primary"
+              size="large"
+            >
+            </kendo-loader>
+            <div class="k-loading-panel-text">Loading...</div>
+          </div>
+        </div>
+        </div>
+        </div>

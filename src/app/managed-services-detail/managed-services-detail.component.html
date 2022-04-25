@@ -1,0 +1,166 @@
+<div class="row justify-content-center mb-3 mt-3">
+    <kendo-listview
+  
+    [kendoListViewBinding]="data3"
+    [pageable]="pagerSettings"
+    [pageSize]="pageSize"
+    [containerClass]="'listview-content'"
+    [itemStyle]="{
+      display: 'inline-flex'
+    }"
+    >
+    <ng-template kendoListViewHeaderTemplate>
+      <h3 class="header-title">  Managed Services 's Tools </h3>
+    </ng-template>
+    <ng-template
+        kendoListViewItemTemplate
+        let-dataItem="dataItem"
+        let-isLast="isLast"
+    >
+    <div class="card1">
+    
+      <input type="checkbox" id="{{dataItem.id}}" class="more">
+    
+      <div class="content " >
+    
+        <div class="front ">
+      
+            <div class="inner row ">
+              <div class="ml-auto"> 
+                <button *ngIf="isadmin" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item 
+                  (click)="openDialogeditTool(dataItem.id)">
+                    <mat-icon>
+                     
+                        drive_file_rename_outline
+                    </mat-icon>
+                    <span>Edit Link</span>
+                  </button>
+           
+                  <button mat-menu-item (click)="deleteX(dataItem.id)">
+                    <mat-icon>
+                      delete
+                    </mat-icon>
+                    <span>Delete</span>
+                  </button>
+                </mat-menu>
+              </div>
+              
+    
+              <div class=" row justify-content-center align-items-center"  > 
+    
+               
+    
+                
+    
+                  <div class="row justify-content-center col-12">
+    
+                    <button class="btn link-button" >
+    
+                      <img [src]="'data:image/png;base64,'+dataItem.logo" class="img-button" />
+                    </button>
+    
+                  </div>
+    
+                  <div class="row justify-content-center col-12 mt-3 mb-2">
+    
+                    <h2 class="">{{dataItem.name}}</h2>
+    
+                  </div>
+    
+                
+    
+               
+    
+                <div class="row justify-content-around col-12">
+                  
+                  <label attr.for="{{dataItem.id}}" class=" button" aria-hidden="true">
+    
+                    Details
+    
+                </label>
+    
+                  <label  class=" button" aria-hidden="true"  (click)="openNewPage(dataItem.link)">
+    
+                    Consult
+    
+                 </label>
+    
+              
+    
+                  
+    
+                </div>
+    
+                  
+    
+                  
+    
+                 
+
+
+
+    
+                  
+    
+               
+    
+    
+    
+              
+    
+               
+    
+              </div>
+
+            </div>
+    
+        </div>
+    
+        <div class="back">
+    
+            <div class="inner container">
+    
+               
+    
+                <div class="description row ">
+    
+                    <h1 class="descrption-text">
+                   
+                      {{dataItem. description}}
+                       </h1>
+    
+    
+                
+    
+                </div>
+    
+                <div class="row mt-4">
+    
+                  <label attr.for="{{dataItem.id}}" class="button return" aria-hidden="true">
+    
+                    <i class="fas fa-arrow-left"></i>
+    
+                </label>
+    
+                </div>
+    
+                 
+    
+            </div>
+    
+        </div>
+    
+    </div>
+    
+    </div>
+      
+    </ng-template>
+    <ng-template kendoListViewFooterTemplate>
+      
+    </ng-template>
+    </kendo-listview>
+  </div>

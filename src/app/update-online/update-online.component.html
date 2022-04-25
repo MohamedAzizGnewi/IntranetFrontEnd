@@ -1,0 +1,57 @@
+<h1 mat-dialog-title >New Event</h1>
+<div mat-dialog-content>
+    <div class="form"  >
+       
+          
+                  <mat-form-field>
+                    <mat-label>Name</mat-label>
+                    <input matInput [(ngModel)]="name" >
+                   
+                  </mat-form-field>
+              
+                 
+                  <mat-form-field >
+                    <mat-label>Invite Link</mat-label>
+                    <input matInput [(ngModel)]="link">
+                   
+                  </mat-form-field>
+        
+                  <mat-form-field>
+                    <mat-label>Description</mat-label>
+                    <input matInput [(ngModel)]="description" >
+                   
+                  </mat-form-field>
+                  <div class="flex-container2">
+                    <div class="flex-container">
+                        <div>
+                          <label class="label" for="exampleInputPassword1">Start Date</label>
+                          <input type="date" class="form-control"  id="exampleInputPassword1"  [(ngModel)]="start_date">
+                        </div>
+                       
+                        <div>
+                          <label class="label" for="exampleInputPassword1">Start Time</label>
+                          <input type="time" class="form-control"  id="exampleInputPassword1" [(ngModel)]="start_time">
+                        </div>
+                    </div>
+                    <div class="flex-container" style="margin-left: 2%;">
+                      <div>
+                          <label class="label" for="exampleInputPassword1">End Date</label>
+                          <input type="date" class="form-control"  id="exampleInputPassword1" [(ngModel)]="end_date" >
+                        </div>
+                      <div >
+                        <label class="label" for="exampleInputPassword1">End Time</label>
+                        <input type="time" class="form-control"  id="exampleInputPassword1"   [(ngModel)]="end_time" >
+                      </div>
+                      
+                     </div>
+                  </div>
+               
+                   
+   
+      
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button  (click)="close()">Close</button>
+    <button mat-button (click)="save()" cdkFocusInitial>Ok</button>
+  </div>
+

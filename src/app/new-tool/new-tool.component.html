@@ -1,0 +1,73 @@
+<!--<h1 mat-dialog-title>Hi {{data.name}}</h1> -->
+  
+<h1 mat-dialog-title >New Tool</h1>
+<div mat-dialog-content>
+    <div class="form">  
+        <mat-radio-group aria-label="Select an option" [(ngModel)]="form"   class="example-radio-group" *ngIf="id===1">
+            <mat-radio-button  class="example-radio-button" *ngFor = "let item of items" [value] = "item.val">      {{item.name}}  </mat-radio-button>
+          </mat-radio-group>
+    
+           
+            <div *ngIf="form===2" >
+              <mat-form-field appearance="fill" >
+                <mat-label>Solution</mat-label>
+                <select matNativeControl [(ngModel)]="selectedSolution" name="solution">
+                  <option *ngFor="let solution of solutions" [value]="solution.id">
+                    {{solution.name}}
+                  </option>
+                </select>
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Tool</mat-label>
+                <select matNativeControl [(ngModel)]="selectedTool" name="solution">
+                  <option *ngFor="let tool of tools" [value]="tool.id">
+                    {{tool.name}}
+                  </option>
+                </select>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Link</mat-label>
+                <input matInput [(ngModel)]="link2">
+               
+              </mat-form-field>
+          </div>
+            <div *ngIf="form===1"  >
+               
+                  <mat-form-field appearance="fill" *ngIf="id===1">
+                    <mat-label>Solution</mat-label>
+                    <select matNativeControl [(ngModel)]="selectedValue" name="solution">
+                      <option *ngFor="let solution of solutions" [value]="solution.id">
+                        {{solution.name}}
+                      </option>
+                    </select>
+                  </mat-form-field>
+                  <mat-form-field>
+                    <mat-label>Name</mat-label>
+                    <input matInput [(ngModel)]="name">
+                   
+                  </mat-form-field>
+                  <mat-form-field>
+                    <mat-label>Description</mat-label>
+                    <input matInput [(ngModel)]="description">
+                   
+                  </mat-form-field>
+                  <mat-form-field>
+                    <mat-label>Link</mat-label>
+                    <input matInput [(ngModel)]="link">
+                   
+                  </mat-form-field>
+                  <kendo-upload [saveUrl]="uploadSaveUrl" [removeUrl]="uploadRemoveUrl"  [(ngModel)]="logo" name="logo">
+                  </kendo-upload>
+          </div>
+         
+    </div>
+   
+   
+      
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button  (click)="close()">Close</button>
+    <button mat-button (click)="save()" cdkFocusInitial>Ok</button>
+  </div>
+
+

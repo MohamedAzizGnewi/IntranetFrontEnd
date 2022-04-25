@@ -1,0 +1,31 @@
+
+  <kendo-card orientation="horizontal" width="auto" [class.border-bottom]="borderBottom">
+      <div  class="number-div" >
+        <p class="num">5</p> 
+        <p class="num">vote</p>
+      </div>
+    <div class="k-vbox">
+    
+      <kendo-card-body>
+        <div class="text-content">
+            <div kendoCardTitle class="title">
+                {{ article.title }}
+            </div>
+            <div kendoCardSubtitle class="subtitle">
+                {{ article.subtitle }}
+            </div>
+            <div kendoCardSubtitle class="date">
+                {{ article.date }}
+            </div>
+        </div>
+      </kendo-card-body>
+      <kendo-card-actions >
+        <button class="k-button k-flat" (click)="toggleLike()">
+          <span [ngClass]="heartIcon()"></span>
+          Like
+        </button>
+        <hr kendoCardSeparator orientation="vertical" />
+        
+      </kendo-card-actions>
+    </div>
+  </kendo-card>

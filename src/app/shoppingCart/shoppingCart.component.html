@@ -1,0 +1,497 @@
+<div *ngIf="display" class="c2">
+  <section class="c2">
+    <div class="container-fluid">
+      <div class="row mb-4">
+        <!--<div class="col-7 no-padding" > 
+                  <img class="w-100 image1" src="../../../assets/images/ima2.jpg" alt="">
+                </div>
+                     
+                 <div class="col no-padding2" >
+                  <img class="w-100 image2" src="../../../assets/images/ima1.jpg" alt="">
+                  <img class="w-100 image3" src="../../../assets/images/ima3.png" alt="">
+                </div>-->
+      </div>
+
+      <div class="row tab border2">
+        <div *ngIf="isadmin" class="col-12 action-bar">
+          <button mat-button class="button-folder" (click)="openDialogeevent()">
+            <mat-icon> add </mat-icon>
+            <span>New Item </span>
+          </button>
+          
+          <button
+            mat-button
+            class="button-folder ml-2"
+            [matMenuTriggerFor]="menu"
+          >
+            <mat-icon> visibility </mat-icon>
+            <span> Visibility</span>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="setVisibility(1)">france</button>
+            <button mat-menu-item (click)="setVisibility(0)">tunis</button>
+          </mat-menu>
+          <!--
+          <button
+            mat-button
+            class="button-folder ml-2"
+            [matMenuTriggerFor]="menu"
+          >
+            <mat-icon> sort </mat-icon>
+            <span> Sort By</span>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>Name</button>
+            <button mat-menu-item>Date</button>
+          </mat-menu>
+          -->
+          
+          
+        </div>
+        
+        <kendo-tabstrip>
+          <kendo-tabstrip-tab [selected]="true">
+            <ng-template kendoTabTitle>
+              <h4>IT</h4>
+            </ng-template>
+            <ng-template kendoTabContent>
+              <div class="wrapper">
+                <div class="content-container">
+                  <div *ngFor="let event of events; let index = index">
+                    <kendo-card class="grid__item" width="360px">
+                      <kendo-card-header>
+                        <div class="card-tools">
+                          <button
+                            type="button"
+                            class="btn btn-tool"
+                            data-card-widget="remove"
+                            [matMenuTriggerFor]="menu"
+                            aria-label="Example icon-button with a menu"
+                          >
+                            <i class="fas fa-ellipsis-v"></i>
+                          </button>
+                          <mat-menu #menu="matMenu">
+                            <button
+                              mat-menu-item
+                              (click)="updateEvent(event.id)"
+                            >
+                              <mat-icon> drive_file_rename_outline </mat-icon>
+                              <span>Update</span>
+                            </button>
+
+                            <button mat-menu-item (click)="delete(event.id)">
+                              <mat-icon> delete </mat-icon>
+                              <span>Delete</span>
+                            </button>
+                          </mat-menu>
+                        </div>
+                      </kendo-card-header>
+                      <img
+                        [src]="'data:image/gif;base64,' + event.image"
+                        kendoCardMedia
+                        alt="cover_img"
+                      />
+                      <kendo-card-body >
+                        <div class="title-event">
+                          <span class="title-text">{{ event.name }}</span>
+                        </div>
+
+                        <p class="text-muted">
+                          <img
+                            class="icon-meeting mr-1"
+                            src="https://img.icons8.com/ios/344/banknotes.png"
+                          />{{ event.price }}
+                        </p>
+                        
+                        
+                        
+                        
+                      </kendo-card-body>
+                      
+                      <kendo-card-actions
+                        orientation="horizontal"
+                        layout="stretched"
+                      >
+
+                        <button
+                          (click)="readMore(event.id)"
+                          class="k-button k-flat"
+                        >
+                          Read More
+                        </button>
+                      </kendo-card-actions>
+                    </kendo-card>
+                  </div>
+
+                  <!--<app-webinars
+                      *ngFor="let event of events;"
+                      [data]="data()"
+                    >
+
+
+                         <kendo-card class="grid__item" width="360px" *ngFor="let event of events;">
+                      <kendo-card-header >
+                        <div class="card-tools">
+                          <button type="button" class="btn btn-tool" data-card-widget="remove" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                            <i class="fas fa-ellipsis-v"></i>
+                          </button>
+                          <mat-menu #menu="matMenu">
+                            <button mat-menu-item >
+                              <mat-icon>
+                               
+                                  drive_file_rename_outline
+                              </mat-icon>
+                              <span>Rename</span>
+                            </button>
+                            <button mat-menu-item>
+                              <mat-icon>
+                                vpn_key
+                              </mat-icon>
+                              <span>Change Permission</span>
+                            </button>
+                            <button mat-menu-item>
+                              <mat-icon>
+                                delete
+                              </mat-icon>
+                              <span>Delete</span>
+                            </button>
+                          </mat-menu>
+                        </div>
+                      
+                      </kendo-card-header>
+                      <img [src]="cover" kendoCardMedia alt="cover_img" />
+                      <kendo-card-body >
+                            <h4 class="title-style">Black Sea, Bulgaria</h4>
+                            <p class="text-sm text-muted"><i class="fas fa-map-marker-alt mr-1"></i>{{event.address}}</p>
+                            <p class="text-sm text-muted" ><img class="icon-meeting mr-1" src="https://img.icons8.com/ios/15/000000/room-finder.png"/>Salle carthage</p>
+                            <p class="text-sm text-muted"><i class="fas fa-clock mr-1"></i> Aug 17,2020 02:00pm-08:00pm</p>
+                            <hr kendoCardSeparator />
+                            <p class="max-lines">
+                              {{event.id}}
+                            </p>
+                              
+                            
+                          </kendo-card-body>
+                      <kendo-card-actions orientation="horizontal" layout="stretched">
+                        <button class="k-button k-flat" >
+                          <span ></span>
+                          Like
+                        </button>
+                       
+                        <button class="k-button k-flat">Read More</button>
+                      </kendo-card-actions>
+                    
+                    </kendo-card>
+                     -->
+                </div>
+                <kendo-datapager
+                  [style.width.%]="100"
+                  [pageSize]="pageSize"
+                  [skip]="skip"
+                  [total]="events.length"
+                  (pageChange)="onPageChange($event)"
+                >
+                </kendo-datapager>
+              </div>
+            </ng-template>
+          </kendo-tabstrip-tab>
+          <kendo-tabstrip-tab>
+            <ng-template kendoTabTitle>
+              <h4>Forniture</h4>
+            </ng-template>
+            <ng-template kendoTabContent>
+              <div class="wrapper">
+                <div class="content-container">
+                  <div *ngFor="let event of events1; let index = index">
+                    <kendo-card class="grid__item" width="360px">
+                      <kendo-card-header>
+                        <div class="card-tools">
+                          <button
+                            type="button"
+                            class="btn btn-tool"
+                            data-card-widget="remove"
+                            [matMenuTriggerFor]="menu"
+                            aria-label="Example icon-button with a menu"
+                          >
+                            <i class="fas fa-ellipsis-v"></i>
+                          </button>
+                          <mat-menu #menu="matMenu">
+                            <button
+                              mat-menu-item
+                              (click)="updateEvent(event.id)"
+                            >
+                              <mat-icon> drive_file_rename_outline </mat-icon>
+                              <span>Update</span>
+                            </button>
+
+                                  <button mat-menu-item (click)="delete(event.id)">
+                                <mat-icon> delete </mat-icon>
+                              <span>Delete</span>
+                            </button>
+                          </mat-menu>
+                        </div>
+                      </kendo-card-header>
+                      <img
+                        [src]="'data:image/gif;base64,' + event.image"
+                        kendoCardMedia
+                        alt="cover_img"
+                      />
+                      <kendo-card-body >
+                        <div class="title-event">
+                          <span class="title-text">{{ event.name }}</span>
+                        </div>
+
+                        <p class="text-muted">
+                          <img
+                            class="icon-meeting mr-1"
+                            src="https://img.icons8.com/ios/344/banknotes.png"
+                          />{{ event.price }}
+                        </p>
+                       
+                      </kendo-card-body>
+                      
+                      <kendo-card-actions
+                        orientation="horizontal"
+                        layout="stretched"
+                      >
+
+                        <button
+                          (click)="readMore(event.id)"
+                          class="k-button k-flat"
+                        >
+                          Read More
+                        </button>
+                      </kendo-card-actions>
+                    </kendo-card>
+                  </div>
+
+                  <!--<app-webinars
+                      *ngFor="let event of events;"
+                      [data]="data()"
+                    >
+
+
+                         <kendo-card class="grid__item" width="360px" *ngFor="let event of events;">
+                      <kendo-card-header >
+                        <div class="card-tools">
+                          <button type="button" class="btn btn-tool" data-card-widget="remove" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                            <i class="fas fa-ellipsis-v"></i>
+                          </button>
+                          <mat-menu #menu="matMenu">
+                            <button mat-menu-item >
+                              <mat-icon>
+                               
+                                  drive_file_rename_outline
+                              </mat-icon>
+                              <span>Rename</span>
+                            </button>
+                            <button mat-menu-item>
+                              <mat-icon>
+                                vpn_key
+                              </mat-icon>
+                              <span>Change Permission</span>
+                            </button>
+                            <button mat-menu-item>
+                              <mat-icon>
+                                delete
+                              </mat-icon>
+                              <span>Delete</span>
+                            </button>
+                          </mat-menu>
+                        </div>
+                      
+                      </kendo-card-header>
+                      <img [src]="cover" kendoCardMedia alt="cover_img" />
+                      <kendo-card-body >
+                            <h4 class="title-style">Black Sea, Bulgaria</h4>
+                            <p class="text-sm text-muted"><i class="fas fa-map-marker-alt mr-1"></i>{{event.address}}</p>
+                            <p class="text-sm text-muted" ><img class="icon-meeting mr-1" src="https://img.icons8.com/ios/15/000000/room-finder.png"/>Salle carthage</p>
+                            <p class="text-sm text-muted"><i class="fas fa-clock mr-1"></i> Aug 17,2020 02:00pm-08:00pm</p>
+                            <hr kendoCardSeparator />
+                            <p class="max-lines">
+                              {{event.id}}
+                            </p>
+                              
+                            
+                          </kendo-card-body>
+                      <kendo-card-actions orientation="horizontal" layout="stretched">
+                        <button class="k-button k-flat" >
+                          <span ></span>
+                          Like
+                        </button>
+                       
+                        <button class="k-button k-flat">Read More</button>
+                      </kendo-card-actions>
+                    
+                    </kendo-card>
+                     -->
+                </div>
+                <kendo-datapager
+                  [style.width.%]="100"
+                  [pageSize]="pageSize"
+                  [skip]="skip"
+                  [total]="events.length"
+                  (pageChange)="onPageChange($event)"
+                >
+                </kendo-datapager>
+              </div>
+            </ng-template>
+          </kendo-tabstrip-tab>
+          <kendo-tabstrip-tab>
+            <ng-template kendoTabTitle>
+              <h4>Other</h4>
+            </ng-template>
+            <ng-template kendoTabContent>
+              <div class="wrapper">
+                <div class="content-container">
+                  <div *ngFor="let event of events2; let index = index">
+                    <kendo-card class="grid__item" width="360px">
+                      <kendo-card-header>
+                        <div class="card-tools">
+                          <button
+                            type="button"
+                            class="btn btn-tool"
+                            data-card-widget="remove"
+                            [matMenuTriggerFor]="menu"
+                            aria-label="Example icon-button with a menu"
+                          >
+                            <i class="fas fa-ellipsis-v"></i>
+                          </button>
+                          <mat-menu #menu="matMenu">
+                            <button
+                              mat-menu-item
+                              (click)="updateEvent(event.id)"
+                            >
+                              <mat-icon> drive_file_rename_outline </mat-icon>
+                              <span>update</span>
+                            </button>
+
+                            <button mat-menu-item (click)="delete(event.id)">                              <mat-icon> delete </mat-icon>
+                              <span>Delete</span>
+                            </button>
+                          </mat-menu>
+                        </div>
+                      </kendo-card-header>
+                      <img
+                        [src]="'data:image/gif;base64,' + event.image"
+                        kendoCardMedia
+                        alt="cover_img"
+                      />
+                      <kendo-card-body *ngIf="event.category == 'presence'">
+                        <div class="title-event">
+                          <span class="title-text">{{ event.name }}</span>
+                        </div>
+
+                        <p class="text-muted">
+                          <img
+                            class="icon-meeting mr-1"
+                            src="https://img.icons8.com/ios/344/banknotes.png"
+                          />{{ event.price }}
+                        </p>
+                        
+                      </kendo-card-body>
+                      
+                      <kendo-card-actions
+                        orientation="horizontal"
+                        layout="stretched"
+                      >
+
+                        <button
+                          class="k-button k-flat"
+                          (click)="readMore(event.id)"
+                        >
+                          Read More
+                        </button>
+                      </kendo-card-actions>
+                    </kendo-card>
+                  </div>
+
+                  <!--<app-webinars
+                      *ngFor="let event of events;"
+                      [data]="data()"
+                    >
+
+
+                         <kendo-card class="grid__item" width="360px" *ngFor="let event of events;">
+                      <kendo-card-header >
+                        <div class="card-tools">
+                          <button type="button" class="btn btn-tool" data-card-widget="remove" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                            <i class="fas fa-ellipsis-v"></i>
+                          </button>
+                          <mat-menu #menu="matMenu">
+                            <button mat-menu-item >
+                              <mat-icon>
+                               
+                                  drive_file_rename_outline
+                              </mat-icon>
+                              <span>Rename</span>
+                            </button>
+                            <button mat-menu-item>
+                              <mat-icon>
+                                vpn_key
+                              </mat-icon>
+                              <span>Change Permission</span>
+                            </button>
+                            <button mat-menu-item>
+                              <mat-icon>
+                                delete
+                              </mat-icon>
+                              <span>Delete</span>
+                            </button>
+                          </mat-menu>
+                        </div>
+                      
+                      </kendo-card-header>
+                      <img [src]="cover" kendoCardMedia alt="cover_img" />
+                      <kendo-card-body >
+                            <h4 class="title-style">Black Sea, Bulgaria</h4>
+                            <p class="text-sm text-muted"><i class="fas fa-map-marker-alt mr-1"></i>{{event.address}}</p>
+                            <p class="text-sm text-muted" ><img class="icon-meeting mr-1" src="https://img.icons8.com/ios/15/000000/room-finder.png"/>Salle carthage</p>
+                            <p class="text-sm text-muted"><i class="fas fa-clock mr-1"></i> Aug 17,2020 02:00pm-08:00pm</p>
+                            <hr kendoCardSeparator />
+                            <p class="max-lines">
+                              {{event.id}}
+                            </p>
+                              
+                            
+                          </kendo-card-body>
+                      <kendo-card-actions orientation="horizontal" layout="stretched">
+                        <button class="k-button k-flat" >
+                          <span ></span>
+                          Like
+                        </button>
+                       
+                        <button class="k-button k-flat">Read More</button>
+                      </kendo-card-actions>
+                    
+                    </kendo-card>
+                     -->
+                </div>
+                <kendo-datapager
+                  [style.width.%]="100"
+                  [pageSize]="pageSize"
+                  [skip]="skip"
+                  [total]="events.length"
+                  (pageChange)="onPageChange($event)"
+                >
+                </kendo-datapager>
+              </div>
+            </ng-template>
+          </kendo-tabstrip-tab>
+        </kendo-tabstrip>
+      </div>
+    </div>
+  </section>
+</div>
+<div *ngIf="!display" class="container-fluid test2">
+  <div class="h-100 row align-items-center justify-content-center t1">
+    <div class="row k-loading-panel">
+      <div class="k-loading-panel-mask"></div>
+      <div class="k-loading-panel-wrapper">
+        <kendo-loader type="infinite-spinner" themeColor="primary" size="large">
+        </kendo-loader>
+        <div class="k-loading-panel-text">Loading...</div>
+      </div>
+    </div>
+  </div>
+</div>

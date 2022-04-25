@@ -1,0 +1,172 @@
+<div *ngIf="!sharedsevice.display" class="row  action-bar border2" style="background-color: white;">
+
+  <button mat-button class="button-folder" (click)="openDialogNewFolder()">
+    <mat-icon>
+      
+          folder
+       
+    </mat-icon>
+    <span>New Folder</span>  
+  </button>
+
+  <button mat-button class="button-folder ml-2">
+    <mat-icon>
+     
+          upload_file
+     
+      
+    </mat-icon>
+    <span>Upload</span>
+  </button>
+  <button mat-button class="button-folder ml-2" [matMenuTriggerFor]="menu">
+    <mat-icon>
+     
+        edit
+    
+    </mat-icon>
+    <span>Edit</span>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Rename</button>
+    <button mat-menu-item>Edit permissions</button>
+  </mat-menu>
+   
+
+       
+
+</div>
+<div *ngIf="sharedsevice.display" class="row  action-bar border2" style="background-color: white;">
+    
+      <button  type="button" class="btn btn-default   button-folder ml-2" data-toggle="modal" data-target="#edit">
+
+        <i class="fas fa-book-open"></i> Open
+
+      </button>
+   
+
+    <button  type="button" class="btn btn-default   button-folder ml-2" data-toggle="modal" data-target="#edit">
+
+      <i class="far fa-trash-alt"></i> Delete
+
+    </button>
+    <button  type="button" class="btn btn-default   button-folder ml-2">
+
+      <i class="fas fa-download"></i> Download
+
+    </button>
+    <div class="ml-auto">
+      <button  type="button" class="btn btn-default   button-folder ">
+
+        <i class="fas fa-times"></i> Close
+
+      </button>
+    </div>
+    
+    
+   
+
+    
+
+</div>
+<div class="row tab">
+   <div class="col-4 folder border1" style="background-color: white;" >
+    <aside class="" style="background-color: white;">
+
+      <div class="sidebar">
+        <nav class="nav-side-menu mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column"  role="menu" data-accordion="false">
+            <li class="nav-item " >
+              <a routerLink="/marketing/materials/directory"  (click)="Select()" class="nav-link d-flex justify-content-between" [class.active]="activeState === 'racine'" data-toggle="collapse" data-target="#directory" >
+                <span class="align-self-start" ><i class="nav-icon fas fa-folder-open"  ></i>
+                  <p style="color: black;">Marketing Materials</p>
+                  </span>
+                  <span class="arrow"></span>
+              </a>
+            </li>
+            <ul class="sub-menu collapse" id="directory"> 
+            <li class="nav-item"  *ngFor="let directory of directorys; let i = index" >
+              <a [routerLink]="['/marketing/materials/folder/', directory.id]"  (click)="onSelect(directory.id,i)" class="nav-link d-flex justify-content-between" [class.active]="i === activeState && type==='directory'"  data-toggle="collapse"  attr.data-target="#toggleDemo-{{ i }}" >
+                <span class="align-self-start" ><i class="nav-icon fas fa-folder-open"></i>
+                  <p style="color: black;"> {{ directory.name_directory }}</p>
+                </span>
+                  <span class="arrow"></span>
+                
+              </a>
+              <ul  class="sub-menu collapse" id="{{ 'toggleDemo-' + i }}" *ngFor="let subdirectory of directory.subdirectorys"   >
+                <li class="nav-item" >
+                  <a routerLink="/marketing/materials/file" (click)="onSelect2(subdirectory.id,i)" class="nav-link d-flex justify-content-between"  [class.active]="subdirectory.id === activeState2 && type==='sub'">
+                    <span class="align-self-start" ><i class="nav-icon fas fa-folder-open"></i>
+                      <p style="color: black;"> {{ subdirectory.name }}</p>
+                    </span>
+                     
+                    
+                  </a>
+                </li>
+         
+                
+               
+              </ul>
+            
+            
+            
+            
+            </li>
+           
+          
+       
+           
+            <ul class="sub-menu collapse" id="products2">
+              <li class="nav-item">
+                <a routerLink="/marketing/materials/word" class="nav-link d-flex justify-content-between" routerLinkActive="active"  >
+                  <span class="align-self-start" ><i class="nav-icon fas fa-folder-open"></i>
+                    <p style="color: black;">New Access Logos</p>
+                  </span>
+                   
+                  
+                </a>
+              </li>
+              <li class="nav-item">
+                <a routerLink="/marketing/materials/word" class="nav-link d-flex justify-content-between" routerLinkActive="active"  >
+                  <span class="align-self-start" ><i class="nav-icon fas fa-folder-open"></i>
+                    <p style="color: black;">Color Chart
+                    </p>
+                  </span>
+                   
+                  
+                </a>
+              </li>
+              <li class="nav-item">
+                <a routerLink="/marketing/materials/word" class="nav-link d-flex justify-content-between" routerLinkActive="active"  >
+                  <span class="align-self-start" ><i class="nav-icon fas fa-folder-open"></i>
+                    <p style="color: black;">Backgrounds & Wallpapers
+                    </p>
+                  </span>
+                   
+                  
+                </a>
+              </li>
+              <li class="nav-item">
+                <a routerLink="/marketing/materials/word" class="nav-link d-flex justify-content-between" routerLinkActive="active"  >
+                  <span class="align-self-start" ><i class="nav-icon fas fa-folder-open"></i>
+                    <p style="color: black;">Social Media</p>
+                  </span>
+                   
+                  
+                </a>
+              </li>
+               
+            </ul>
+            </ul>
+          </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>
+  </div>
+  <div class="col-8 folder border3" style="background-color: white;" >
+  
+    <router-outlet></router-outlet>
+   
+  </div>
+</div> 

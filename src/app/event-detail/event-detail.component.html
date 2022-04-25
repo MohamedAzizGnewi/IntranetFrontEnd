@@ -1,0 +1,72 @@
+<div class="container1">
+    <kendo-card  class=" grid__item" width="360px" >
+        <kendo-card-header >
+      
+           
+        </kendo-card-header>
+        <img [src]="'data:image/gif;base64,'+event.image" kendoCardMedia alt="cover_img" />
+        <kendo-card-body *ngIf="event.category=='presence'" >
+          <div class="title-event" >
+            <span class="title-text">{{event.name}}</span>
+          </div>
+          
+          <p class="text-sm text-muted"><i class="fas fa-map-marker-alt mr-1"></i>{{event.address}}</p>
+          <p class="text-sm text-muted" ><img class="icon-meeting mr-1" src="https://img.icons8.com/ios/15/000000/room-finder.png"/>{{event.venue}}</p>
+          <p class="text-sm text-muted"><i class="fas fa-clock mr-1"></i> {{event.start_date}} ---{{event.end_date}}</p>
+          <hr kendoCardSeparator />
+         
+            <p >
+              {{event.description}}
+            </p>
+         
+          
+        </kendo-card-body>
+        <kendo-card-body *ngIf="event.category=='online'"  >
+          <div class="title-event">
+            <span class="title-text" >{{event.name}}</span>
+          </div>
+          <p class="text-muted text-sm"><i class="fas fa-video icon-event mr-1"></i>Online</p>
+          <p class="text-muted text-sm"><i class="fas fa-clock mr-1"></i> {{event.start_date}} --{{event.end_date}}</p>
+          <p class="text-muted text-sm" >
+            <i class="fas fa-link mr-1"> </i>
+            
+               
+              
+                <a  [href]="event.link">Invite link </a>
+         
+             
+            
+                
+          </p>
+      
+              
+    
+    
+          
+             
+    
+        
+               
+         
+            
+         
+          
+           
+      
+          <hr kendoCardSeparator />
+          <p class="max-lines">
+            {{event.description}}
+          </p>
+        </kendo-card-body>
+        <kendo-card-actions orientation="horizontal"  layout="stretched">
+          <button class="k-button k-flat" (click)="save4(event.id)"  >
+            <span  [ngClass]="heartIcon2()"></span>
+            Like
+          </button>
+         
+        
+        </kendo-card-actions>
+      
+      </kendo-card>
+    
+</div>

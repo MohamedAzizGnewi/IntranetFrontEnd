@@ -1,0 +1,120 @@
+@import "../../styles.css";
+nav>ul>li>.active {
+  background-color: #E9ECEF;
+}
+nav>ul>ul>li>.active {
+  background-color: #E9ECEF;
+}
+nav>ul>ul>li>ul>li>.active {
+  
+  background-color: #E9ECEF;
+}
+.nav>ul>li>a {
+  color: black;
+  text-decoration:none !important;
+}
+
+.nav>ul>li>a:hover {
+  color:black; 
+  text-decoration:none !important;
+  cursor:pointer;  
+}
+button:focus {
+    outline: none;
+  }
+  .button-folder {
+   padding: 10px;
+    font-size: 18px;
+     color: #737373;
+
+   }
+ 
+   .btn-folder {
+    color: black;
+    font-size: 13px;
+  
+  }
+
+  .btn-folder:active{
+    background:#EEEEEE;
+  
+    outline: none;
+      border: none;
+      box-shadow: none;
+  }
+  .btn-folder:focus{
+    background:#EEEEEE;
+    outline: none;
+      border: none;
+      box-shadow: none;
+  }
+  .btn-folder:hover {
+  
+       
+  
+    background-color:  #E9ECEF;
+  
+  }
+   .button-folder:hover {
+
+     
+
+    background-color:  #E9ECEF;
+
+  }
+
+  .button-folder:focus {
+
+    outline: none;
+
+    box-shadow: none;
+
+  }
+  .nav-side-menu ul   :not(collapsed) .arrow:before,
+  .nav-side-menu li :not(collapsed) .arrow:before {
+    font-family: 'Font Awesome 5 Free';
+    content: "\f078";
+    display: inline-block;
+    font-weight: 900;
+    padding-left: 10px;
+    padding-right: 10px;
+    vertical-align: middle;
+    float: right;
+    color: #737373;
+   
+  }
+  .nav-icon {
+    color: #FFE69A;
+  }
+  .border2 {border-style: solid;
+    border-width: 2px;
+  color: #E0E0E0;
+ 
+  }
+  .border3 {
+    border-style: solid;
+    border-width: 2px;
+  color: #E0E0E0;
+  border-top: none;
+  border-left: none;
+
+  }
+  .border1 {border-style: solid;
+    border-width: 2px;
+  color: #E0E0E0;
+  border-top: none;
+  
+  
+  }
+  .action-bar {
+    padding: 10px;
+  }
+  .button {
+    width: auto;
+  }
+  ul {
+    list-style-type: none;
+  }
+  .tab {
+    min-height: 300px;
+  }

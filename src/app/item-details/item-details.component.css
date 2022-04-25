@@ -1,0 +1,54 @@
+@import "../../styles.css";
+.grid__item {
+    background-color: #fff;
+    border-radius: 0.4rem;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  .grid__item:hover {
+    transform: translateY(-0.7%);
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+  }
+  .card-tools {
+    float: right;
+    margin-right: -.625rem;
+  }
+  .title-event {
+    text-transform: uppercase;
+     
+     padding: 0%;
+    height: 50px;
+    text-align: start;
+  
+  }
+  .title-text {
+    font-size: 20px;
+    font-weight: 600;
+  
+  }
+  .text-sm {
+    font-size: .875rem!important;
+    }
+    
+    .text-muted {
+    color: #6c757d!important;
+    font-size: 20px;
+    }
+    .icon-meeting { 
+        width: 20px;
+        height: 20px;
+        }
+    .k-icon.icon2 {
+            color: #ff6358;
+          }
+    .k-icon.icon1 {
+            color: #0a0a0a;
+          }
+    .container1 {
+        display: flex;
+        justify-content: center; align-items: center;
+        padding: 5%;
+        }

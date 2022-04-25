@@ -1,0 +1,32 @@
+@import "../../styles.css";
+.div1 {
+    height: 300px
+}
+.div2 {
+    height: 200px
+}
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-size: 30px;
+ 
+  }
+  .div-c {
+      padding: 5%;
+  }
+  .edit {
+      width: 30px;
+  }
+  .test2 {
+    height: 100vh;
+  
+  
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  
+  
+   
+  }

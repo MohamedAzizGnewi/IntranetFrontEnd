@@ -1,0 +1,94 @@
+
+
+
+<div *ngIf="!show" class="container-fluid test2">
+  <div class="h-100 row align-items-center justify-content-center t1">
+    <div  class="row k-loading-panel">
+      <div class="k-loading-panel-mask"></div>
+      <div class="k-loading-panel-wrapper">
+        <kendo-loader
+          type="infinite-spinner"
+          themeColor="primary"
+          size="large"
+        >
+        </kendo-loader>
+        <div class="k-loading-panel-text">Loading...</div>
+      </div>
+    </div>
+    </div>
+    </div>
+
+  <div *ngIf="show" class="container-fluid c1" >
+
+
+   <div>
+    <div *ngIf="isadmin" class="shadow  row action2  align-items-center">
+      <button type="button" class="btn btn-primary btn-lg mr-4" (click)="openDialognewSolution()">Add Solution</button>
+      <button type="button" class="btn btn-primary btn-lg mr-4" (click)="openDialognewTool()">Add Tool</button>
+    </div>
+      
+  <div class=" row justify-content-between justify-content-center align-items-center social-links mt-4"   >
+    <div *ngFor="let solution of data1 ; let index = index;" [className]="'col-3   row justify-content-center align-items-center mb-4 '+solution.class">
+   
+      <a   (click)="select(solution.id,index,solution.name)" [className]="'no-padding3 card div-cardde '+solution.class2"   >
+        <div class="w-100 centered2"></div>
+        <img src="../../assets/images/fiance4.jpg" class="card__image" alt="" />
+        <div class="card__overlay">
+          <div class="card__header">
+            <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+            
+          
+              <h3 class="card__title">{{solution.name}}</h3>     
+                       
+            </div>
+            <span class="card__description mb-1">{{solution.description}}</span>
+            <div class="example-flex-container">
+            <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" matTooltip="edit"  
+            matTooltipPosition="left">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button aria-label="Example icon button with a vertical three dot icon"  matTooltip="delete"  
+            matTooltipPosition="right" color="warn">
+              <mat-icon>delete</mat-icon>
+            </button>
+            </div>
+        </div>
+      </a>  
+    </div>       
+  
+    
+  
+    
+       
+  
+  
+  
+  
+  
+  
+   
+  </div>
+  
+  
+  
+  
+  
+  
+     
+     
+  
+       
+          <app-dev-detail [item1]="currentItem" [isadmin]="isadmin2" [directorys]="directorys" [tools]="tools"  ></app-dev-detail>
+  </div>
+
+ 
+
+   
+
+   
+
+        
+
+  
+</div>
+

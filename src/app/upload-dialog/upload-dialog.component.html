@@ -1,0 +1,39 @@
+
+<h1 mat-dialog-title >Upload file</h1>
+  <div mat-dialog-content>
+  
+    <kendo-upload [saveUrl]="uploadSaveUrl" [removeUrl]="uploadRemoveUrl"  [(ngModel)]="form" name="form">
+    </kendo-upload>
+    <span class="label">Visibility</span>
+          
+    <section class="example-section">
+                
+               
+                
+      <span  class="example-list-section">
+        <div class="row">
+          <div class="col-3" *ngFor="let subtask of subtasks ; let i=index "  >
+            <mat-checkbox [(ngModel)]="subtask.permission"
+           
+                            color="primary"
+                          (ngModelChange)="updateAllComplete()"
+                          [disabled]=!permissions[i] >
+              {{subtask.departement}}
+            </mat-checkbox>
+          </div>
+      </div>
+      </span> 
+ 
+  
+
+
+</section>
+    
+    
+   
+      
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button  (click)="close()">Close</button>
+    <button mat-button (click)="onSubmit()" cdkFocusInitial>Ok</button>
+  </div>

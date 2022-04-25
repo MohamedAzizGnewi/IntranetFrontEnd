@@ -1,0 +1,22 @@
+.example-radio-group {
+    display: flex;
+    flex-direction: row;
+    margin: 15px 0;
+  }
+  
+  .example-radio-button {
+    margin: 5px;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 3%;
+    width: 100%;
+    height: auto;
+   
+  }
+  ::ng-deep.mat-form-field {
+    width: 100%;
+  }
+  

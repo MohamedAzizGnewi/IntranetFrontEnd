@@ -1,64 +1,141 @@
-  <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color:black ;">
-    <!-- Brand Logo -->
-    <div class="sidebar">
-      <a routerLink="/" class="navbar-brand">
-        <img [src]="cheminImage" class="brand-image">
-      </a>
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-       <div class="image">
-        <img src="assets/admin-lte/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-       </div>
-       <div class="info">
-        <a href="#" class="d-block">Alexander Pierce</a>
-       </div>
-      </div>
-
-      <!-- Sidebar Menu -->
-      
-      <nav class="nav-side-menu mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <li class="nav-item" >
-            <a routerLink="/"  class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >
-              <i class="nav-icon fas fa-home icon"></i>
-              <p>
-                Home
-              </p>
-            </a>
-          </li> 
-          <li class="nav-item">
-            <a routerLink="/contacts" class="nav-link a1" routerLinkActive="active">
-              <div class="center">
-                <i class="nav-icon fas fa-user icon"  ></i>
-              <p >Contact</p>
-              </div>
-              
-            </a>
-          </li>
-          <li class="nav-item" data-toggle="collapse" data-target="#products" class="nav-item collapsed active"  >
-            <a routerLink="/home" class="nav-link " routerLinkActive="active" >
-              
-                <i class="nav-icon fas fa-user icon"  ></i>
-                    Contact
-                    <span class="arrow"></span>
-             
-              
-            </a>
-          </li>
-         
-          <ul class="sub-menu collapse" id="products">
-              <li class="active"><a href="#">CSS3 Animation</a></li>
-              <li><a href="#">General</a></li>
-              <li><a href="#">Buttons</a></li>
-             
-          </ul>
-
-         
-      
-          
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4" >
+  <!-- Brand Logo -->
+  <div class="sidebar">
+    <a routerLink="/" class="navbar-brand">
+      <img [src]="cheminImage" class="brand-image">
+    </a>
+    <div  *ngIf="show" class="user-panel mt-3 pb-3 mb-3 d-flex">
+     <div class="image">
+      <img  [src]="'data:image/gif;base64,'+user.image" class="img-circle elevation-2" alt="User Image">
+     </div>
+     <div class="info">
+      <a href="/profile" class="d-block">{{user.firstName}} {{user.lastName}}</a>
+     </div>
     </div>
-    <!-- /.sidebar -->
-  </aside>
+
+    <!-- Sidebar Menu -->
+    
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <li class="nav-item" >
+          <a routerLink=""  class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >
+            <i class="nav-icon fas fa-home"></i>
+            <p>
+              Home
+            </p>
+          </a>
+        </li> 
+ 
+        <li class="nav-item">
+          <a routerLink="/marketing" class="nav-link" routerLinkActive="active">
+            <i class="nav-icon fas fa-bullhorn"></i>
+            <p> 
+              Marketing
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/calendar" class="nav-link" routerLinkActive="active">
+            <i class="nav-icon fas fa-calendar-week"></i>
+            <p> 
+              Calendar
+            </p>
+          </a>
+        </li>
+    
+        <li class="nav-item">
+          <a routerLink="/sales" class="nav-link" routerLinkActive="active">
+          
+            <i class="nav-icon  fas fa-chart-pie"></i>
+            <p> 
+              sales
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/idea" class="nav-link" routerLinkActive="active">
+          
+            <i class="nav-icon fas fa-lightbulb"></i>
+            <p> 
+              Idea
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/events" class="nav-link" routerLinkActive="active">
+            <i class="nav-icon fas fa-calendar-week"></i>
+            <p>
+              Events
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/dev" class="nav-link" routerLinkActive="active">
+            <i class="nav-icon fas fa-code"></i>
+            <p>
+              Dev
+            </p>
+          </a>
+        </li>
+  
+        <li class="nav-item">
+          <a routerLink="/ms" class="nav-link" routerLinkActive="active">
+           
+            <img src="https://img.icons8.com/ios-filled/24/ffffff/services--v1.png" class="nav-icon"/>
+            <p>
+              Managed Services
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/ps" class="nav-link" routerLinkActive="active">
+            
+            <img src="https://img.icons8.com/material/48/ffffff/computer-support--v2.png" class="nav-icon"/>
+            <p>
+              Professional services
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/finance" class="nav-link" routerLinkActive="active">
+           
+                  
+            <img class="nav-icon"  src="https://img.icons8.com/ios-filled/100/ffffff/bank-building.png" />
+            <p>
+              Finance
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/rh" class="nav-link" routerLinkActive="active">
+            <img src="https://img.icons8.com/ios-glyphs/80/ffffff/search-client.png" class="nav-icon"/>
+            <p>
+              Human Resources
+            </p>
+          </a>
+        </li>
+  
+        <li class="nav-item">
+          <a routerLink="/configuration" class="nav-link" routerLinkActive="active">
+         
+            <i class="nav-icon  fas fa-users-cog"></i>
+            <p> 
+              Configuration
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/Shop" class="nav-link" routerLinkActive="active">
+         
+            <i class="nav-icon  fas fa-list-alt"></i>
+            <p> 
+              Shop
+            </p>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+</aside>

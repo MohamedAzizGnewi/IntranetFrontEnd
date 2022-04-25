@@ -1,0 +1,310 @@
+<!--
+    <div class="row" >
+  
+      <div class="col-4 row1" >
+        <kendo-card class="grid__item" style="width: 100%;" >
+          <kendo-card-header >
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="remove" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <i class="fas fa-ellipsis-v"></i>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item >
+                  <mat-icon>
+                   
+                      drive_file_rename_outline
+                  </mat-icon>
+                  <span>Rename</span>
+                </button>
+                <button mat-menu-item>
+                  <mat-icon>
+                    vpn_key
+                  </mat-icon>
+                  <span>Change Permission</span>
+                </button>
+                <button mat-menu-item>
+                  <mat-icon>
+                    delete
+                  </mat-icon>
+                  <span>Delete</span>
+                </button>
+              </mat-menu>
+            </div>
+          
+          </kendo-card-header>
+          <img [src]="cover" kendoCardMedia alt="cover_img" />
+          <kendo-card-body >
+            <h4 class="title-style">Black Sea, Bulgaria</h4>
+            <p class="text-sm text-muted"><i class="fas fa-map-marker-alt mr-1"></i>Tunis</p>
+            <p class="text-sm text-muted"><i class="fas fa-clock mr-1"></i> Aug 17,2020 02:00pm-08:00pm</p>
+            <hr kendoCardSeparator />
+            <p>
+              The Black Sea is bordered by Ukraine, Romania, Bulgaria, Turkey,
+              Georgia, and Russia. It has a positive water balance; that is, a net
+              outflow of water 300 km3 per year through the Bosphorus and the
+              Dardanelles into the Aegean Sea.
+            </p>
+          </kendo-card-body>
+          <kendo-card-actions orientation="horizontal" layout="stretched">
+            <button class="k-button k-flat" (click)="toggleLike()">
+              <span [ngClass]="heartIcon()"></span>
+              Like
+            </button>
+           
+            <button class="k-button k-flat">Read More</button>
+          </kendo-card-actions>
+        
+        </kendo-card>
+      </div>
+      <div class="col-4 row1" >
+        <kendo-card class="grid__item"  style="width: 100%;" >
+          <kendo-card-header >
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="remove" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <i class="fas fa-ellipsis-v"></i>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item >
+                  <mat-icon>
+                   
+                      drive_file_rename_outline
+                  </mat-icon>
+                  <span>Rename</span>
+                </button>
+                <button mat-menu-item>
+                  <mat-icon>
+                    vpn_key
+                  </mat-icon>
+                  <span>Change Permission</span>
+                </button>
+                <button mat-menu-item>
+                  <mat-icon>
+                    delete
+                  </mat-icon>
+                  <span>Delete</span>
+                </button>
+              </mat-menu>
+            </div>
+          
+          </kendo-card-header>
+          <img [src]="cover" kendoCardMedia alt="cover_img" />
+          <kendo-card-body >
+            <h4 class="title-style">Black Sea, Bulgaria</h4>
+            <p class="text-sm text-muted"><i class="fas fa-map-marker-alt mr-1"></i>Tunis</p>
+            <p class="text-sm text-muted"><i class="fas fa-clock mr-1"></i> Aug 17,2020 02:00pm-08:00pm</p>
+            <hr kendoCardSeparator />
+            <p>
+              The Black Sea is bordered by Ukraine, Romania, Bulgaria, Turkey,
+              Georgia, and Russia. It has a positive water balance; that is, a net
+              outflow of water 300 km3 per year through the Bosphorus and the
+              Dardanelles into the Aegean Sea.
+            </p>
+          </kendo-card-body>
+          <kendo-card-actions orientation="horizontal" layout="stretched">
+            <button class="k-button k-flat" (click)="toggleLike()">
+              <span [ngClass]="heartIcon()"></span>
+              Like
+            </button>
+           
+            <button class="k-button k-flat">Read More</button>
+          </kendo-card-actions>
+        
+        </kendo-card>
+      </div>
+      <div class="col-4 row1" >
+        <kendo-card class="grid__item"  style="width: 100%;" >
+          <kendo-card-header >
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="remove" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <i class="fas fa-ellipsis-v"></i>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item >
+                  <mat-icon>
+                   
+                      drive_file_rename_outline
+                  </mat-icon>
+                  <span>Rename</span>
+                </button>
+                <button mat-menu-item>
+                  <mat-icon>
+                    vpn_key
+                  </mat-icon>
+                  <span>Change Permission</span>
+                </button>
+                <button mat-menu-item>
+                  <mat-icon>
+                    delete
+                  </mat-icon>
+                  <span>Delete</span>
+                </button>
+              </mat-menu>
+            </div>
+          
+          </kendo-card-header>
+          <img [src]="cover" kendoCardMedia alt="cover_img" />
+          <kendo-card-body >
+            <h4 class="title-style">Black Sea, Bulgaria</h4>
+            <p class="text-sm text-muted"><i class="fas fa-map-marker-alt mr-1"></i>Tunis</p>
+            <p class="text-sm text-muted"><i class="fas fa-clock mr-1"></i> Aug 17,2020 02:00pm-08:00pm</p>
+            <hr kendoCardSeparator />
+            <p>
+              The Black Sea is bordered by Ukraine, Romania, Bulgaria, Turkey,
+              Georgia, and Russia. It has a positive water balance; that is, a net
+              outflow of water 300 km3 per year through the Bosphorus and the
+              Dardanelles into the Aegean Sea.
+            </p>
+          </kendo-card-body>
+          <kendo-card-actions orientation="horizontal" layout="stretched">
+            <button class="k-button k-flat" (click)="toggleLike()">
+              <span [ngClass]="heartIcon()"></span>
+              Like
+            </button>
+           
+            <button class="k-button k-flat">Read More</button>
+          </kendo-card-actions>
+        
+        </kendo-card>
+      </div>
+      <div class="col-4 row1" >
+        <kendo-card class="grid__item"  style="width: 100%;" >
+          <kendo-card-header >
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="remove" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <i class="fas fa-ellipsis-v"></i>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item >
+                  <mat-icon>
+                   
+                      drive_file_rename_outline
+                  </mat-icon>
+                  <span>Rename</span>
+                </button>
+                <button mat-menu-item>
+                  <mat-icon>
+                    vpn_key
+                  </mat-icon>
+                  <span>Change Permission</span>
+                </button>
+                <button mat-menu-item>
+                  <mat-icon>
+                    delete
+                  </mat-icon>
+                  <span>Delete</span>
+                </button>
+              </mat-menu>
+            </div>
+          
+          </kendo-card-header>
+          <img   [src]="cover" kendoCardMedia alt="cover_img" />
+          <kendo-card-body >
+            <h4 class="title-style">Black Sea, Bulgaria</h4>
+            <p class="text-muted text-sm"><i class="fas fa-video icon-event mr-1"></i>Online</p>
+            <p class="text-muted text-sm"><i class="fas fa-clock mr-1"></i> Aug 17,2020 02:00pm-08:00pm</p>
+            <p class="text-muted text-sm" >
+              <i class="fas fa-link mr-1"> Invite link :</i>
+              
+                 
+                
+                  <a  href="https://www.linkedin.com/events/6754704010617389056/">https://www.linkedin.com/events/6754704010617389056/</a>
+           
+               
+              
+                  
+            </p>
+        
+                
+      
+      
+            
+               
+     
+          
+                 
+           
+              
+           
+            
+             
+        
+            <hr kendoCardSeparator />
+            <p>
+              The Black Sea is bordered by Ukraine, Romania, Bulgaria, Turkey,
+              Georgia, and Russia. It has a positive water balance; that is, a net
+              outflow of water 300 km3 per year through the Bosphorus and the
+              Dardanelles into the Aegean Sea.
+            </p>
+          </kendo-card-body>
+          <kendo-card-actions orientation="horizontal" layout="stretched">
+            <button class="k-button k-flat" (click)="toggleLike()">
+              <span [ngClass]="heartIcon()"></span>
+              Save
+            </button>
+           
+            <button class="k-button k-flat">Read More</button>
+          </kendo-card-actions>
+        
+        </kendo-card>
+      </div>
+ 
+  
+  
+  </div>
+
+-->
+
+
+  <kendo-card class="grid__item" width="360px" >
+    <kendo-card-header >
+      <div class="card-tools">
+        <button type="button" class="btn btn-tool" data-card-widget="remove" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <i class="fas fa-ellipsis-v"></i>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item >
+            <mat-icon>
+             
+                drive_file_rename_outline
+            </mat-icon>
+            <span>Rename</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>
+              vpn_key
+            </mat-icon>
+            <span>Change Permission</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>
+              delete
+            </mat-icon>
+            <span>Delete</span>
+          </button>
+        </mat-menu>
+      </div>
+    
+    </kendo-card-header>
+    <img [src]="cover" kendoCardMedia alt="cover_img" />
+    <kendo-card-body >
+      <h4 class="title-style">Black Sea, Bulgaria</h4>
+      <p class="text-sm text-muted"><i class="fas fa-map-marker-alt mr-1"></i>{{data.address}}</p>
+      <p class="text-sm text-muted" ><img class="icon-meeting mr-1" src="https://img.icons8.com/ios/15/000000/room-finder.png"/>Salle carthage</p>
+      <p class="text-sm text-muted"><i class="fas fa-clock mr-1"></i> Aug 17,2020 02:00pm-08:00pm</p>
+      <hr kendoCardSeparator />
+      <p class="max-lines">
+        {{data.id}}
+      </p>
+        
+      
+    </kendo-card-body>
+    <kendo-card-actions orientation="horizontal" layout="stretched">
+      <button class="k-button k-flat" (click)="save(data.index)">
+        <span [ngClass]="heartIcon(data.index)"></span>
+        Like
+      </button>
+     
+      <button class="k-button k-flat">Read More</button>
+    </kendo-card-actions>
+  
+  </kendo-card>

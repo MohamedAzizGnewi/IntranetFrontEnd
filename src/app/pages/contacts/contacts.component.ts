@@ -1,55 +1,41 @@
 import { Component, OnInit } from '@angular/core';
 import {MatTreeNestedDataSource} from '@angular/material/tree';
 import {NestedTreeControl} from '@angular/cdk/tree';
-interface FoodNode {
+import {folder} from "../../shared/folder";
+import {Subfolder } from "../../shared/subfolder";
+import {File} from "../../shared/files";
+import {FolderService} from "../../_services/folder.service";
+import {SharedService} from "../../_services/shared.service";
+export interface PeriodicElement {
   name: string;
-  children?: FoodNode[];
+  position: number;
+  weight: number;
+  symbol: string;
 }
 
-const TREE_DATA: FoodNode[] = [
-  {
-    name: 'Fruit',
-    children: [
-      {name: 'Apple'},
-      {name: 'Banana'},
-      {name: 'Fruit loops'},
-    ]
-  }, {
-    name: 'Vegetables',
-    children: [
-      {
-        name: 'Green',
-        children: [
-          {name: 'Broccoli'},
-          {name: 'Brussels sprouts'},
-        ]
-      }, {
-        name: 'Orange',
-        children: [
-          {name: 'Pumpkins'},
-          {name: 'Carrots'},
-        ]
-      },
-    ]
-  },
-];
+
 @Component({
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.css']
 })
 export class ContactsComponent implements OnInit {
+  panelOpenState = false;
+  checked = false;
+  customCollapsedHeight: string = '39px';
+  TREE_DATA: folder[] ;
+  treeControl = new NestedTreeControl<folder>(node => node.subfolder);
+  dataSource = new MatTreeNestedDataSource<folder>();
 
-  treeControl = new NestedTreeControl<FoodNode>(node => node.children);
-  dataSource = new MatTreeNestedDataSource<FoodNode>();
-
-  constructor() {
-    this.dataSource.data = TREE_DATA;
+  constructor(private folderService:FolderService,public sharedsevice: SharedService) {
+    this.dataSource.data = this.folderService.getFolders();
   }
 
-  hasChild = (_: number, node: FoodNode) => !!node.children && node.children.length > 0;
+  hasChild = (_: number, node: folder) => !!node.subfolder && node.subfolder.length > 0;
 
   ngOnInit(): void {
+  this.TREE_DATA=this.folderService.getFolders();
   }
 
 }
+

@@ -1,0 +1,79 @@
+<div class="container" style="background-color: white;">
+  
+    <div *ngIf="show"  class="row div1 align-items-center justify-content-center div-c" >
+      <div class="row col-4 align-items-center justify-content-center " >
+          <kendo-avatar
+          width="200px"
+          height="200px"
+  
+          shape="circle"
+          [imageSrc]="'data:image/gif;base64,'+user.image"
+        ></kendo-avatar>
+        <button (click)="update()" type="button" class="btn btn-primary  col-5 edit mt-2" >edit profile</button>
+        <button (click)="update_image()" type="button" class="btn btn-primary  col-5 edit mt-2 ml-1" >edit image</button>
+      </div>
+      <div class="row col align-items-center " >
+          <div class="flex-container">
+              <p >{{user.firstName}} {{user.lastName}}</p>
+              <p style="margin-top: 20px;">{{user.poste}}</p>
+              <p style="margin-top: 20px;">{{user.departement.name}}</p>
+          </div>
+       
+        </div>
+      </div>
+      
+      <hr>
+  <div *ngIf="show" class="row div2 align-items-center justify-content-center div-c" >
+        <div class="col-3">
+          <p >   
+            <i class="fas fa-birthday-cake mr-1"></i>
+       
+            Birthday : {{user.birthday | date}}
+       </p> 
+        </div>
+        <div class="col-3">
+          <p >   
+            <i class="fas fa-award mr-1"></i>
+           
+            work anniversary : {{user.join_date | date}}
+       </p> 
+        </div>
+        <div class="col-3">
+          <p >   
+            <i class="fas fa-phone mr-1"></i>
+           
+            phone number : {{user.phone_number}}
+       </p> 
+        </div>
+        <div class="col-3">
+          <p >   
+        
+            <i class="fas fa-map-marked-alt mr-1"></i>
+           pays : {{user.pays}}
+       </p> 
+        </div>
+  </div>
+  
+
+
+   
+
+    
+
+</div>
+<div *ngIf="!show" class="container-fluid test2">
+  <div class="h-100 row align-items-center justify-content-center t1">
+    <div  class="row k-loading-panel">
+      <div class="k-loading-panel-mask"></div>
+      <div class="k-loading-panel-wrapper">
+        <kendo-loader
+          type="infinite-spinner"
+          themeColor="primary"
+          size="large"
+        >
+        </kendo-loader>
+        <div class="k-loading-panel-text">Loading...</div>
+      </div>
+    </div>
+    </div>
+    </div>

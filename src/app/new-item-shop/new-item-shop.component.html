@@ -1,0 +1,58 @@
+<h1 mat-dialog-title >New Item</h1>
+<div mat-dialog-content>
+    <div class="form"  >
+       
+          
+                  <mat-form-field>
+                    <mat-label>Name</mat-label>
+                    <input matInput [(ngModel)]="name" >
+                    
+                  </mat-form-field>
+                  
+                  
+                    <kendo-upload style="width: 100%;margin-bottom: 1%;"  [saveUrl]="uploadSaveUrl" [removeUrl]="uploadRemoveUrl" [(ngModel)]="image" >
+                  </kendo-upload>
+
+                  
+                  
+                  
+
+                   
+                  <mat-form-field >
+                    <mat-label>Price</mat-label>
+                    <input matInput [(ngModel)]="price">
+                  </mat-form-field>
+                  <mat-form-field >
+                    <mat-label>Quantity</mat-label>
+                    <input matInput [(ngModel)]="quantity" >
+                   
+                  </mat-form-field>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Type</mat-label>
+                    <select matNativeControl [(ngModel)]="type" name="solution">
+                      <option *ngFor="let Type of Types" [value]="Type.name">
+                        {{Type.name}}
+                      </option>
+                    </select>
+                  </mat-form-field>
+                  <mat-form-field >
+                    <mat-label>Visibility</mat-label>
+                    <input matInput [(ngModel)]="visibility" >
+                   
+                  </mat-form-field>
+                  <mat-form-field>
+                    <mat-label>Description</mat-label>
+                   
+                    <textarea matInput [(ngModel)]="description"></textarea>
+                  </mat-form-field>
+                  
+               
+                   
+   
+      
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button  (click)="close()">Close</button>
+    <button mat-button (click)="saveY()" cdkFocusInitial>Ok</button>
+  </div>
+  

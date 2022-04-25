@@ -1,119 +1,115 @@
 <div class="c2">
 
-    <section class="c2">
+  <section class="c2">
 
 
 
 
-        <div class="container-fluid">
+    <div class="container-fluid">
+      <div class="row mb-2">
 
+  
+
+  
+
+  
+
+        <div class="col-sm-12">
+
+  
+
+  
+
+  
+
+          <ol class="breadcrumb float-sm-left starter">
+
+  
+
+  
+
+  
+
+            <li class="breadcrumb-item" ><a href="#"  style="color: #fc5000;">Marketing</a></li>
+
+            
+            
       
+            
+    </ol>
 
-      
+        </div><!-- /.col -->
 
-      
+      </div><!-- /.row -->
 
-          <div class="row mb-2">
+  
 
-      
+  
 
-      
+  
 
-      
+    </div><!-- /.container-fluid -->
 
-            <div class="col-sm-12">
 
-      
 
-      
+  </section>
 
-      
-
-              <ol class="breadcrumb float-sm-left">
-
-      
-
-      
-
-      
-
-                <li class="breadcrumb-item" ><a href="#"  style="color: #fc5000;">Marketing</a></li>
-
-      
-
-      
-
-      
-
-                <li class="breadcrumb-item active">Starter Page</li>
-        </ol>
-
-            </div><!-- /.col -->
-
-          </div><!-- /.row -->
-
-      
-
-      
-
-      
-
-        </div><!-- /.container-fluid -->
-
-    
-
-      </section>
-
-      <section class="c2">
-        <div class="container-fluid">
-            <div class="row">
-              <div class="col-3" >
-                <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
-                    <!-- This is the tree node template for leaf nodes -->
-                    <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
-                      <button mat-button>
-                        <li class="mat-tree-node">
-                            <!-- use a disabled button to provide padding for tree leaf -->
-                            <button mat-icon-button disabled>
-                                <mat-icon>
-                                    folder
-                                  </mat-icon>
-                            </button>
-                            {{node.name}} 
-                          </li>
-                      </button>
-                      
-                    </mat-tree-node>
-                    <!-- This is the tree node template for expandable nodes -->
-                    <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
-                    
-                      <li>
-                        <div class="mat-tree-node">
-                          <button mat-icon-button matTreeNodeToggle
-                                  [attr.aria-label]="'Toggle ' + node.name">
-                            <mat-icon class="mat-icon-rtl-mirror">
-                              {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-                            </mat-icon>
-                          </button>
-                          <button mat-icon-button disabled>
-                            <mat-icon>
-                                folder
-                              </mat-icon>
-                        </button>
-                          {{node.name}}
-                        </div>
-                        <ul [class.example-tree-invisible]="!treeControl.isExpanded(node)">
-                          <ng-container matTreeNodeOutlet></ng-container>
-                        </ul>
-                      </li>
-                    </mat-nested-tree-node>
-                  </mat-tree>
+  <section class="c1">
+    <div class="container">
+          <div class="row mb-4" >
+               <div class="col-7 no-padding" > 
+                <img class="w-100 image1" src="../../../assets/images/ima2.jpg" alt="">
               </div>
-              <div class="col-9">
-                2 of 2
+                   
+               <div class="col no-padding2" >
+                <img class="w-100 image2" src="../../../assets/images/ima1.jpg" alt="">
+                <img class="w-100 image3" src="../../../assets/images/ima3.png" alt="">
               </div>
-            </div>
-        </div>
-      </section>
-
+              
+          </div>
+          <div class="row mb-4 justify-content-between">
+            <a href="#" class="link-button">
+              <img class="img-button" src="https://img.icons8.com/cute-clipart/100/000000/canva.png"/>
+            </a>
+            <a href="#" class="link-button">
+              <img class="img-button" src="https://img.icons8.com/color/96/000000/salesforce.png"/>
+            </a>
+            <a href="#" class="link-button">
+              <img class="img-button" src="https://img.icons8.com/cute-clipart/128/000000/linkedin.png"/>
+            </a>
+            <a href="#" class="link-button">
+              <img class="img-button" src="../../../assets/images/istock.2png.png"/>
+            </a>
+            <a href="#" class="link-button">
+              <img class="img-button" src="../../../assets/images/hoot2.png"/>
+            </a>
+            
+          </div>  
+          <div class="row mb-4 ">
+            <a routerLink="/marketing/materials" class="col no-padding3" >
+              <div class="w-100 centered2"></div>
+              <img class="image4 w-100" src="../../../assets/images/templates2.png"/>
+              <div class="w-100 centered"><h1 class="name">Templates</h1></div>
+             
+            </a>
+            
+            <a routerLink="/marketing/strategy" class="col no-padding3 ml-3">
+              <div class="w-100 centered2"></div>
+              <img class="image4 w-100" src="../../../assets/images/strategy3.png"/>
+              <div class="w-100 centered"><h1 class="name">Strategy and roadmap</h1></div>
+            </a>
+           
+            <a routerLink="/marketing/strategy" class="col no-padding3 ml-3">
+              <div class="w-100 centered2"></div>
+              <img class="image4 w-100" src="../../../assets/images/social media3.jpg"/>
+              <div class="w-100 centered"><h1 class="name">Other</h1></div>
+            </a>
+          </div>
+          <div >
+            <router-outlet></router-outlet>
+          </div>
+          
+    </div>
+  </section>
+  
 </div>

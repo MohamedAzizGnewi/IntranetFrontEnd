@@ -1,0 +1,20 @@
+table{
+  width: 100%;
+ }
+.mat-row:hover {
+  background-color:#EEEEEE;;
+}
+th.mat-sort-header-sorted {
+  color: black;
+}
+.input-filter {
+padding-top: 1%;
+}
+.icon {
+width: 20px;
+height: 20px;
+}
+button:focus, button:active:focus, button.active:focus {
+outline: none !important;
+outline-style: none !important;
+}
